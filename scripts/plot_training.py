@@ -13,9 +13,9 @@ with open(TRAIN_PARAMS.metrics_file, "r") as file:
     data = json.load(file)
 assert data is not None
 
-def calculate_rewards(data: dict[str, Any]) -> tuple[list[int], list[float]]:
+def calculate_reward(data: dict[str, Any]) -> tuple[list[int], list[float]]:
     episodes = []
-    rewards = []
+    reward = []
 
     episode_cutoff = TRAIN_PARAMS.train_episodes - REWARD_WINDOW
     current_reward = 0.0
@@ -38,17 +38,17 @@ def calculate_rewards(data: dict[str, Any]) -> tuple[list[int], list[float]]:
 
         if len(reward_window) == ARENA_WINDOW:
             episodes.append(episode + 1)
-            rewards.append(total_reward / ARENA_WINDOW)
+            reward.append(total_reward / ARENA_WINDOW)
 
-    return (episodes, rewards)
+    return (episodes, reward)
 
-def plot_rewards(data: dict[str, Any]):
-    episodes, rewards = calculate_rewards(data)
+def plot_reward(data: dict[str, Any]):
+    episodes, reward = calculate_reward(data)
 
     plt.rcParams["font.size"] = 12
     figure, axes = plt.subplots(figsize=(6.4 * 1.5, 4.8 * 1.5))
-    axes.plot(episodes, rewards)
-    axes.set_title("Training Rewards")
+    axes.plot(episodes, reward)
+    axes.set_title("Training Reward")
     axes.set_xlabel("Episode Number")
     axes.set_ylabel("Smoothed Reward")
     axes.grid(visible=True, alpha=0.5)
@@ -84,6 +84,6 @@ def plot_random_chances(random_chances: list[float]):
     figure.tight_layout()
     plt.show()
 
-plot_rewards(data)
+plot_reward(data)
 plot_losses(data["mean_losses"])
 plot_random_chances(data["random_chances"])
