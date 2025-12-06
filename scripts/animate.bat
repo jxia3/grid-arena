@@ -1,0 +1,1 @@
+python src/arena/render.py all --path data/episodes

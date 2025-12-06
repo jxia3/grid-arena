@@ -1,0 +1,1 @@
+python src/arena/run.py --num-episodes 20 --seed 1337
