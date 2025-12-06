@@ -2,7 +2,7 @@
 
 ## Installation
 
-Install dependencies either using the `pyproject.toml` file or the `requirements.txt` file. The dependencies listed in both files are the same, except the `requirements.txt` file also lists `matplotlib`, which is used during development to visualize results.
+Install dependencies either using the `pyproject.toml` file or the `requirements.txt` file. The dependencies listed in both files are the same, except the `requirements.txt` file also lists `matplotlib`, which is used during development to visualize results. If an error indicates that the package `arena` is not installed. run `pip install -e .`.
 
 ## Running Custom Agents
 
