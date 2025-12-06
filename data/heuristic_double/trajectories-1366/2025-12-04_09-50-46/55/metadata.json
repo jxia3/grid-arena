@@ -1,0 +1,24 @@
+{
+  "episode": 55,
+  "agent_names": [
+    "Aggressive",
+    "Aggressive",
+    "Scanner",
+    "Scanner",
+    "Zombie",
+    "Zombie",
+    "Coward",
+    "Coward",
+    "Random",
+    "Random",
+    "Custom (Heuristic)",
+    "Custom (Heuristic)"
+  ],
+  "config": {
+    "height": 15,
+    "width": 15,
+    "max_steps": 486,
+    "survival_decay": 0.99,
+    "vision_radius": 2
+  }
+}
